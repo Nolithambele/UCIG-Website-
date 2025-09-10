@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UCIG Group | Data Analytics & Consulting</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --section-bg: #ffffff;
+      --text-dark: #2e2e2e;
+      --text-mid: #555;
+      --accent-primary: #1565c0;
+      --accent-secondary: #00897b;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    a { color: var(--accent-primary); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--accent-secondary); }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px var(--shadow);
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--text-dark);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    nav a:hover { color: var(--accent-primary); }
+
+    /* Banner Hero */
+    .banner {
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      color: #fff;
+      position: relative;
+      background-size: cover;        /* ensures image covers entire banner */
+      background-position: center;   /* centers image */
+      background-repeat: no-repeat;  /* prevents tiling */
+    }
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(21, 101, 192, 0.65); /* overlay for readability */
+    }
+    .banner h1, .banner h2, .banner p {
+      position: relative;
+      z-index: 1;
+    }
+    .banner h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .banner p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 5rem auto;
+      padding: 2.5rem;
+      border-radius: 12px;
+      background: var(--section-bg);
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent-primary);
+      font-weight: 700;
+      text-align: center;
+    }
+    section h3 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      color: var(--accent-secondary);
+      font-weight: 600;
+      text-align: center;
+    }
+    section p,
+    section li {
+      font-size: 1rem;
+      color: var(--text-mid);
+      margin: 0.4rem auto;
+      max-width: 720px;
+      text-align: center;
+    }
+    ul {
+      margin-top: 0.8rem;
+      padding-left: 1.2rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    ul li { margin-bottom: 0.6rem; text-align: left; }
+
+    /* Cards */
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+    .card h3 { color: var(--accent-primary); margin-bottom: 0.8rem; }
+
+    /* Tutoring */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1.3rem;
+      box-shadow: 0 4px 10px var(--shadow);
+    }
+    .price-card strong { color: var(--accent-secondary); }
+
+    /* Contact */
+    #contact { text-align: center; }
+    #contact p { margin-bottom: 1.5rem; font-size: 1rem; color: var(--text-mid); }
+    #contact p a { color: var(--accent-primary); font-weight: 600; }
+    .whatsapp {
+      display: inline-block;
+      background-color: #25d366;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+      transition: background 0.3s ease;
+    }
+    .whatsapp:hover { background-color: #128c7e; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .banner h1 { font-size: 2.2rem; }
+      .banner h2 { font-size: 2rem; }
+      section { margin: 3rem 1rem; padding: 2rem 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      nav { justify-content: center; padding: 0.8rem 1rem; }
+      nav a { font-size: 0.8rem; }
+      .banner { height: 60vh; }
+      .banner h1 { font-size: 1.9rem; }
+      .banner h2 { font-size: 1.5rem; }
+      .banner p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#ucig">About</a>
+    <a href="#tutoring">Tutoring</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- UCIG Hero Banner -->
+  <div class="banner" style="background-image: url('luke-chesser-JKUTrJ4vK00-unsplash.jpg');">
+    <h1>UCIG Group</h1>
+    <p>Transforming Data Into Growth – Expert Analytics & Strategy Consulting</p>
+  </div>
+
+  <!-- About Section -->
+  <section id="ucig">
+    <h2>About UCIG Group</h2>
+    <p>
+      UCIG Group is a premier data analytics consulting firm helping organizations
+      turn complex information into clear, actionable insights for growth and impact.
+    </p>
+    <h3>Our Mission</h3>
+    <p>
+      Empowering clients with credible, data-driven insights that support smarter,
+      sustainable decisions.
+    </p>
+    <h3>Our Vision</h3>
+    <p>
+      To become the most trusted consulting partner in analytics-driven strategy worldwide.
+    </p>
+    <div class="split">
+      <div class="card">
+        <h3>Core Services</h3>
+        <ul>
+          <li>Data Analysis & Insights</li>
+          <li>BI Dashboards</li>
+          <li>Survey Design & Analysis</li>
+          <li>Statistical Forecasting</li>
+          <li>Data Automation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Our Strengths</h3>
+        <ul>
+          <li>Proficiency in SAS, R, Python, SQL, Tableau & Power BI</li>
+          <li>Advanced statistical expertise</li>
+          <li>Clear stakeholder communication</li>
+          <li>Government & corporate dataset coverage</li>
+          <li>Strategic growth through data</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tutoring Hero Banner -->
+  <div class="banner" style="background-image: url('thisisengineering-GzDrm7SYQ0g-unsplash.jpg');">
+    <h2>Greater Heights Maths Tutoring</h2>
+    <p>Helping learners excel in Mathematics from Grade 4 to Grade 12</p>
+  </div>
+
+  <!-- Tutoring Section -->
+  <section id="tutoring">
+    <h2>Tutoring</h2>
+    <div class="pricing">
+      <div class="price-card">
+        <p><strong>Primary (Grade 4–7):</strong> R1000 / month – fundamentals & exam prep.</p>
+      </div>
+      <div class="price-card">
+        <p><strong>High School (Grade 8–12):</strong> R1500 / month – advanced topics & readiness.</p>
+      </div>
+    </div>
+    <h3>Sign Up</h3>
+    <iframe src="https://forms.gle/PqT8o3KjXYtVjSNe6" loading="lazy"
+      style="display:block; margin:1.5rem auto; max-width:640px; width:100%; height:480px; border:none; border-radius:10px; box-shadow:0 4px 10px var(--shadow);">
+    </iframe>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:yolandak@ucig.co.za">yolandak@ucig.co.za</a></p>
+    <a class="whatsapp" href="https://wa.me/27828991153" target="_blank" rel="noopener noreferrer">
+      📲 WhatsApp Us
+    </a>
+  </section>
+</body>
+</html>
